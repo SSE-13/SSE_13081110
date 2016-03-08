@@ -3,7 +3,7 @@
 
 ![头像](http://ww2.sinaimg.cn/thumbnail/6c876fc5jw1f1e34yihalj20u00ucduv.jpg)
 
-### 基本介绍~sfsdsgg
+### 基本介绍~
 ***
 * **姓名**：高艾寒  
 * **学号**：13081110  
