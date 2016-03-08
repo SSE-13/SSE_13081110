@@ -1,0 +1,1 @@
+![icon](http://ww2.sinaimg.cn/thumbnail/6c876fc5jw1f1e34yihalj20u00ucduv.jpg)

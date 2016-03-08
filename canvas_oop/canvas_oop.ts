@@ -99,7 +99,7 @@ function loadResource(imageList, callback) {
 }
 
 
-var canvas: HTMLCanvasElement = document.getElementById("game") as HTMLCanvasElement;
+var canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("game");
 var context = canvas.getContext("2d");
 
 
