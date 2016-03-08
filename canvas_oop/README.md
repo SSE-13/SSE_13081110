@@ -1,1 +1,1 @@
-![icon](http://ww2.sinaimg.cn/thumbnail/6c876fc5jw1f1e34yihalj20u00ucduv.jpg)
+![icon](http://img.rfq.so/guide/attachment/2262/226283_2x_1.jpg)
