@@ -104,29 +104,29 @@ var context = canvas.getContext("2d");
 
 
 var rect = new Rect();
-rect.width = 200;
-rect.height = 100;
-rect.color = '#00FF00'
+rect.width = 640;
+rect.height = 360;
+rect.color = '#004f92'
 
 
 var rect2 = new Rect();
 rect2.width = 300;
 rect2.height = 50;
-rect2.x = 200;
-rect2.y = 200;
-rect2.rotation = Math.PI / 8;
-rect2.color = '#00FFFF'
+rect2.x = 300;
+rect2.y = 80;
+//rect2.rotation = Math.PI / 8;
+rect2.color = '#84c046'
 
 var text = new TextField();
 text.x = 10;
 
 var bitmap = new Bitmap();
-bitmap.source = 'wander-icon.jpg';
+bitmap.source = 'icon.png';
 
 //渲染队列
 var renderQueue = [rect, rect2, text,bitmap];
 //资源加载列表
-var imageList = ['wander-icon.jpg'];
+var imageList = ['icon.png'];
 
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function() {
