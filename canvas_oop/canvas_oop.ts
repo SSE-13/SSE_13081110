@@ -112,23 +112,23 @@ rect.color = '#04a3f4'
 
 var rect2 = new Rect();
 rect2.width = 120;
-rect2.height = 40;
-rect2.x = 390;
+rect2.height = 20;
+rect2.x = 410;
 rect2.y = 200;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#95de4e'
 
 var rect3 = new Rect();
 rect3.width = 120;
-rect3.height = 40;
+rect3.height = 20;
 rect3.x = 220;
 rect3.y = 200;
 rect3.color = '#086fbe'
 
 var rect4 = new Rect();
 rect4.width = 120;
-rect4.height = 40;
-rect4.x = 540;
+rect4.height = 20;
+rect4.x = 570;
 rect4.y = 200;
 rect4.color = '#086fbe'
 
