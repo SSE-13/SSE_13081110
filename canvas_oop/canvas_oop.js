@@ -45,8 +45,8 @@ var Rect = (function (_super) {
     __extends(Rect, _super);
     function Rect() {
         _super.apply(this, arguments);
-        this.width = 1000;
-        this.height = 360;
+        this.width = 100;
+        this.height = 100;
         this.color = '#FF0000';
     }
     Rect.prototype.render = function (context) {
@@ -59,11 +59,12 @@ var TextField = (function (_super) {
     __extends(TextField, _super);
     function TextField() {
         _super.apply(this, arguments);
+        this.text = ' ';
     }
     TextField.prototype.render = function (context) {
         context.font = "20px Arial";
         context.fillStyle = '#000000';
-        context.fillText('开始', 0, 20);
+        context.fillText(this.text, 0, 20);
     };
     return TextField;
 }(DisplayObject));
@@ -96,25 +97,46 @@ function loadResource(imageList, callback) {
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var rect = new Rect();
-rect.width = 1000;
+rect.width = 800;
 rect.height = 360;
 rect.color = '#04a3f4';
 var rect2 = new Rect();
-rect2.width = 200;
+rect2.width = 100;
 rect2.height = 50;
-rect2.x = 300;
-rect2.y = 150;
+rect2.x = 350;
+rect2.y = 210;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#95de4e';
+var rect3 = new Rect();
+rect2.width = 100;
+rect2.height = 50;
+rect2.x = 200;
+rect2.y = 210;
+rect2.color = '#086fbe';
+var rect4 = new Rect();
+rect2.width = 100;
+rect2.height = 50;
+rect2.x = 500;
+rect2.y = 210;
+rect2.color = '#086fbe';
 var text = new TextField();
-text.x = 350;
-text.y = 100;
+text.x = 400;
+text.y = 210;
+text.text = '开始';
+var text1 = new TextField();
+text.x = 250;
+text.y = 210;
+text.text = '设置';
+var text2 = new TextField();
+text.x = 550;
+text.y = 210;
+text.text = '联系我们';
 var bitmap = new Bitmap();
 bitmap.source = 'icon.png';
 bitmap.x = 300;
 bitmap.y = 50;
 //渲染队列
-var renderQueue = [rect, rect2, text, bitmap];
+var renderQueue = [rect, rect2, rect3, rect4, text, text1, text2, bitmap];
 //资源加载列表
 var imageList = ['icon.png'];
 //先加载资源，加载成功之后执行渲染队列
