@@ -63,7 +63,7 @@ class TextField extends DisplayObject {
     render(context: CanvasRenderingContext2D) {
         context.font = "20px Arial";
         context.fillStyle = '#000000';
-        context.fillText('HelloWorld', 0, 20);
+        context.fillText('开始', 0, 20);
     }
 }
 
@@ -104,24 +104,27 @@ var context = canvas.getContext("2d");
 
 
 var rect = new Rect();
-rect.width = 640;
+rect.width = 1000;
 rect.height = 360;
-rect.color = '#004f92'
+rect.color = '#04a3f4'
 
 
 var rect2 = new Rect();
 rect2.width = 300;
 rect2.height = 50;
 rect2.x = 300;
-rect2.y = 80;
+rect2.y = 150;
 //rect2.rotation = Math.PI / 8;
-rect2.color = '#84c046'
+rect2.color = '#95de4e'
 
 var text = new TextField();
-text.x = 10;
+text.x = 300;
+text.y = 155;
 
 var bitmap = new Bitmap();
 bitmap.source = 'icon.png';
+bitmap.x = 300;
+bitmap.y = 80;
 
 //渲染队列
 var renderQueue = [rect, rect2, text,bitmap];
