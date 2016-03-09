@@ -113,7 +113,7 @@ rect.color = '#04a3f4'
 var rect2 = new Rect();
 rect2.width = 120;
 rect2.height = 20;
-rect2.x = 450;
+rect2.x = 500;
 rect2.y = 100;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#95de4e'
@@ -128,7 +128,7 @@ rect3.color = '#086fbe'
 var rect4 = new Rect();
 rect4.width = 120;
 rect4.height = 20;
-rect4.x = 600;
+rect4.x = 650;
 rect4.y = 100;
 rect4.color = '#086fbe'
 
