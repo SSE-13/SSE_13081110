@@ -113,8 +113,8 @@ rect.color = '#04a3f4'
 var rect2 = new Rect();
 rect2.width = 120;
 rect2.height = 50;
-rect2.x = 380;
-rect2.y = 225;
+rect2.x = 370;
+rect2.y = 240;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#95de4e'
 
@@ -122,19 +122,19 @@ var rect3 = new Rect();
 rect3.width = 120;
 rect3.height = 50;
 rect3.x = 200;
-rect3.y = 225;
+rect3.y = 240;
 rect3.color = '#086fbe'
 
 var rect4 = new Rect();
 rect4.width = 120;
 rect4.height = 50;
-rect4.x = 580;
-rect4.y = 225;
+rect4.x = 540;
+rect4.y = 240;
 rect4.color = '#086fbe'
 
 
 var text = new TextField();
-text.x = 500;
+text.x = 410;
 text.y = 250;
 text.text = '开始';
 
@@ -144,7 +144,7 @@ text1.y = 250;
 text1.text = '设置';
 
 var text2 = new TextField();
-text2.x = 540;
+text2.x = 560;
 text2.y = 250;
 text2.text = '联系我们';
 
