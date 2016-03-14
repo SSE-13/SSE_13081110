@@ -11,6 +11,8 @@ const BOUNDS_RIGHT = 400;
 
 const BOUNCE = 0.95;
 
+const FRICTION = 0.95;
+
 /**
  * 计时器系统
  */
@@ -50,9 +52,9 @@ class Body {
     y = 0;
     width = 0;
     height = 0;
-
+    
     displayObject;
-
+    
     constructor(displayObject: DisplayObject) {
         this.displayObject = displayObject;
     }
@@ -72,6 +74,7 @@ class Body {
         //TODO： 左右越界反弹
         if (this.x < BOUNDS_LEFT) {
             this.vx = -BOUNCE * this.vx;
+            
         }
         if (this.x + this.width > BOUNDS_RIGHT) {
             this.vx = -BOUNCE * this.vx;
@@ -81,8 +84,9 @@ class Body {
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;
         displayObject.x = this.x;
-        displayObject.y = this.y;
-
+        if(this.y + this.height < BOUNDS_BOTTOM){
+            displayObject.y = this.y;
+        }
     }
 }
 

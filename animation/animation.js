@@ -6,6 +6,7 @@ var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
+var FRICTION = 0.95;
 /**
  * 计时器系统
  */
@@ -49,19 +50,35 @@ var Body = (function () {
         this.y += duringTime * this.vy;
         //反弹
         if (this.y + this.height > BOUNDS_BOTTOM) {
-            this.vy = -BOUNCE * this.vy;
+            if (this.vy < 0 && this.vy > 100) {
+            }
+            else {
+                this.vy = -BOUNCE * this.vy;
+            }
         }
         //TODO： 左右越界反弹
-        if (this.x < BOUNDS_LEFT && this.y > BOUNDS_BOTTOM) {
-            this.vx = -BOUNCE * this.vx;
+        if (this.x < BOUNDS_LEFT) {
+            if (this.vx < 0 && this.vx > 100) {
+            }
+            else {
+                this.vx = -BOUNCE * this.vx;
+            }
         }
-        if (this.x + this.width > BOUNDS_RIGHT && this.y > BOUNDS_BOTTOM) {
-            this.vx = -BOUNCE * this.vx;
+        if (this.x + this.width > BOUNDS_RIGHT) {
+            if (this.vx < 0 && this.vx > 100) {
+            }
+            else {
+                this.vx = -BOUNCE * this.vx;
+            }
         }
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;
         displayObject.x = this.x;
-        displayObject.y = this.y;
+        if (this.y + this.height < BOUNDS_BOTTOM) {
+            displayObject.y = this.y;
+        }
+        else {
+        }
     };
     return Body;
 }());
