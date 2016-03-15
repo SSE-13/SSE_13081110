@@ -11,7 +11,7 @@ const BOUNDS_RIGHT = 400;
 
 const BOUNCE = 0.95;
 
-const FRICTION =0.4;
+const FRICTION =0.05;
 
 /**
  * 计时器系统
@@ -66,15 +66,21 @@ class Body {
         this.x += duringTime * this.vx;
         this.y += duringTime * this.vy;
         //反弹
-        if (this.y + this.height > BOUNDS_BOTTOM &&this.vy>0) {
+        if (this.y + this.height >= BOUNDS_BOTTOM &&this.vy>0) {
             this.vy = -BOUNCE * this.vy;
             if(Math.abs(this.vy)<0.5){
                 this.vy=0;
-                this.vx -= this.vx * FRICTION;
+                
                 this.y=BOUNDS_BOTTOM-this.height;
             }
         }
-        console.log(this.vy);
+        if(this.vy==0&&this.y + this.height >= BOUNDS_BOTTOM){
+            this.vx -= this.vx * FRICTION;
+        }
+        
+        if(this.y<0){
+            this.vy = -BOUNCE * this.vy;
+        }
 
 
 
@@ -85,10 +91,10 @@ class Body {
 
 
         //TODO： 左右越界反弹
-        if (this.x + this.width > BOUNDS_RIGHT) {
+        if (this.x + this.width >= BOUNDS_RIGHT) {
             this.vx = -BOUNCE * this.vx;
         }
-        if (this.x < BOUNDS_LEFT) {
+        if (this.x <= BOUNDS_LEFT) {
             this.vx = -BOUNCE * this.vx;
         }
 
