@@ -37,11 +37,13 @@ module game {
                 for (var j = 0; j < NUM_ROWS; j++) {
                       if(this.grid.getNode(i,j).walkable){
                             context.fillStyle = '#0000FF';
+                            context.rect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);   
                         }
                      else{
                          context.fillStyle = '#000000';
+                         context.fillRect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);   
                       }
-                    context.fillRect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);                   
+                                    
                     context.fill();
                     context.stroke();
                 }
