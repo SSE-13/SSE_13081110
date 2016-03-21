@@ -80,15 +80,12 @@ module game {
             findpath.setHeurisitic(findpath.diagonal);
             var result = findpath.findPath(grid);
             var path = findpath._path;
-            var a=0;
             for(var i=0;i<path.length;i++){
-               this.Xarry[a]=i;
-               a++; 
+               this.Xarry[i]=path[i].x;
             }
-            var b=0;
+            
             for(var j=0;j<path.length;j++){
-                this.Yarry[b]=j;
-                b++;
+                this.Yarry[j]=path[j].y;
             }
             console.log(path);
             console.log(grid.toString());
@@ -99,9 +96,9 @@ module game {
 
         public onTicker(duringTime) {
             if (this.x<NUM_ROWS *GRID_PIXEL_WIDTH &&this.y<NUM_COLS*GRID_PIXEL_HEIGHT) {
-                this.x += this.Xarry[this.c]*GRID_PIXEL_WIDTH;
-                this.y += this.Yarry[this.c]*GRID_PIXEL_HEIGHT;
-                 this.c++;
+                this.x = this.Xarry[this.c]*GRID_PIXEL_WIDTH;
+                this.y = this.Yarry[this.c]*GRID_PIXEL_HEIGHT;
+                this.c++;
             console.log(this.x,this.y);
              }
         }
