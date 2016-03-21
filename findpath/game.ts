@@ -64,8 +64,15 @@ module game {
 
     export class BoyBody extends Body {
         
-       
-    
+        vx=1;
+        vy=1;
+        x=0;
+        y=0;
+        Xarry= new Array();
+        Yarry= new Array();
+        c=1;
+        
+
         public run(grid) {
             grid.setStartNode(0, 0);
             grid.setEndNode(10, 8);
@@ -73,19 +80,34 @@ module game {
             findpath.setHeurisitic(findpath.diagonal);
             var result = findpath.findPath(grid);
             var path = findpath._path;
-            var world:WorldMap;
-            var arry= new Array();
-
+            var a=0;
+            for(var i=0;i<path.length;i++){
+               this.Xarry[a]=i;
+               a++; 
+            }
+            var b=0;
+            for(var j=0;j<path.length;j++){
+                this.Yarry[b]=j;
+                b++;
+            }
             console.log(path);
             console.log(grid.toString());
         }
         
+        
+        //  displayObject;
 
         public onTicker(duringTime) {
-
+            if (this.x<NUM_ROWS *GRID_PIXEL_WIDTH &&this.y<NUM_COLS*GRID_PIXEL_HEIGHT) {
+                this.x += this.Xarry[this.c]*GRID_PIXEL_WIDTH;
+                this.y += this.Yarry[this.c]*GRID_PIXEL_HEIGHT;
+                 this.c++;
+            console.log(this.x,this.y);
+             }
         }
     }
 }
+    
 
 
 
