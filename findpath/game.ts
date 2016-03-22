@@ -94,18 +94,41 @@ module game {
         }
         
         
-        //  displayObject;
 
         public onTicker(duringTime) {
-            if (this.x<NUM_ROWS *GRID_PIXEL_WIDTH &&this.y<NUM_COLS*GRID_PIXEL_HEIGHT) {
+        /* if (this.x<NUM_ROWS *GRID_PIXEL_WIDTH &&this.y<NUM_COLS*GRID_PIXEL_HEIGHT) {
                 this.x = this.Xarry[this.c]*GRID_PIXEL_WIDTH;
                 this.y = this.Yarry[this.c]*GRID_PIXEL_HEIGHT;
                 this.c++;
             console.log(this.x,this.y);
-             }
+             }*/
+
+            for(var a=0;a<NUM_ROWS;a++) {
+                
+                if (this.x<NUM_ROWS *GRID_PIXEL_WIDTH &&this.y<NUM_COLS*GRID_PIXEL_HEIGHT) {
+                    if(this.x+duringTime*this.vx <= this.Xarry[this.c]*GRID_PIXEL_WIDTH)
+                    {
+                
+                      this.x+=duringTime*this.vx;
+                    }
+                    if(this.y+duringTime*this.vy <= this.Yarry[this.c]*GRID_PIXEL_HEIGHT){
+                      this.y+=duringTime*this.vy;
+                    }
+                    if(this.x+duringTime*this.vx > this.Xarry[this.c]*GRID_PIXEL_WIDTH&&
+                    this.y+duringTime*this.vy > this.Yarry[this.c]*GRID_PIXEL_HEIGHT){
+                        this.c++;
+                    }
+                   console.log(this.vx,this.vy);
+                }
+
+            }
+                console.log(this.c);
+                
+            
         }
     }
 }
+               
     
 
 
