@@ -3,16 +3,23 @@ module game {
 
 }
 
+var human = new render.DisplayObjectContainer();
+
 var humanContainer = new render.DisplayObjectContainer();
-var head = new render.Bitmap();
-head.source = "head.png";
-humanContainer.addChild(head)
+
+humanContainer.x=-80;
+humanContainer.y=-80;
+human.addChild(humanContainer);
 
 var trunk = new render.Bitmap();
 trunk.source = "trunk.png";
 trunk.y=77;
 trunk.x=14;
 humanContainer.addChild(trunk)
+
+var head = new render.Bitmap();
+head.source = "head.png";
+humanContainer.addChild(head)
 
 var left_arm = new render.Bitmap();
 left_arm.source = "left_arm.png";
@@ -39,7 +46,7 @@ right_leg.y=110;
 humanContainer.addChild(right_leg)
 
 var renderCore = new render.RenderCore();
-renderCore.start(humanContainer, ["head.png","trunk.png","left_arm.png","right_arm.png","left_leg.png","right_leg.png"]);
+renderCore.start(human, ["trunk.png","head.png","left_arm.png","right_arm.png","left_leg.png","right_leg.png"]);
 
 
 class HumanBody extends Body {
@@ -59,7 +66,7 @@ class HumanBody extends Body {
 }
 
 var ticker = new Ticker();
-var body = new HumanBody(humanContainer);
+var body = new HumanBody(human);
 ticker.start([body]);
 
 
