@@ -38,11 +38,14 @@ var HumanBody = (function (_super) {
     __extends(HumanBody, _super);
     function HumanBody() {
         _super.apply(this, arguments);
+        this.x = 0;
+        this.y = 0;
+        this.vx = 5;
     }
     HumanBody.prototype.onTicker = function (duringTime) {
-        // this.x = 
-        // this.y = 
-        // this.rotation =
+        this.x += this.vx * duringTime;
+        this.y = this.y;
+        //this.rotation =
     };
     return HumanBody;
 }(Body));
