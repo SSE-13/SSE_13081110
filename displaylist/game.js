@@ -41,11 +41,13 @@ var HumanBody = (function (_super) {
         this.x = 0;
         this.y = 0;
         this.vx = 5;
+        this.vy = 2;
+        this.vr = 5;
     }
     HumanBody.prototype.onTicker = function (duringTime) {
         this.x += this.vx * duringTime;
-        this.y = this.y;
-        //this.rotation =
+        this.y += this.vy * duringTime;
+        this.rotation += this.vr * duringTime;
     };
     return HumanBody;
 }(Body));

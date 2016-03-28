@@ -46,12 +46,14 @@ class HumanBody extends Body {
     x=0;
     y=0;
     vx=5;
+    vy=2;
+    vr=5;
 
     onTicker(duringTime: number) {
 
         this.x +=this.vx*duringTime; 
-        this.y =this.y; 
-        //this.rotation =
+        this.y +=this.vy*duringTime; 
+        this.rotation +=this.vr*duringTime;
 
     }
 }
