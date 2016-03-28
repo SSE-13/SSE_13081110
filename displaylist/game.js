@@ -40,8 +40,8 @@ var HumanBody = (function (_super) {
         _super.apply(this, arguments);
         this.x = 0;
         this.y = 0;
-        this.vx = 5;
-        this.vy = 2;
+        this.vx = 2;
+        this.vy = 3;
         this.vr = 5;
     }
     HumanBody.prototype.onTicker = function (duringTime) {

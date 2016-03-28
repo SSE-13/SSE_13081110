@@ -45,8 +45,8 @@ renderCore.start(humanContainer, ["head.png","trunk.png","left_arm.png","right_a
 class HumanBody extends Body {
     x=0;
     y=0;
-    vx=5;
-    vy=2;
+    vx=2;
+    vy=3;
     vr=5;
 
     onTicker(duringTime: number) {

@@ -42,8 +42,8 @@ module render {
             }
             else {
                 //TODO:
-                // GLOBAL_MATRIX = PARENT_GLOBAL_MATRIX * LOCAL_MATRIX
-                this.globalMatrix = DisplayList(parent.globalMatrix,localMatrix);
+                // GLOBAL_MATRIX = LOCAL_MATRIX*PARENT_GLOBAL_MATRIX
+                this.globalMatrix = DisplayList(localMatrix,parent.globalMatrix);
             }
 
 
@@ -63,14 +63,14 @@ module render {
         }
     }
     
-    function DisplayList(global:Matrix,local:Matrix): Matrix{
+    function DisplayList(local:Matrix,global:Matrix): Matrix{
         var result=new render.Matrix();
-        result.a=global.a*local.a + global.b*local.c;
-        result.b=global.a*local.b + global.b*local.d;
-        result.c=global.c*local.a + global.d*local.c;
-        result.d=global.c*local.b + global.d*local.d;
-        result.tx=global.tx*local.a + global.ty*local.c+local.tx;
-        result.ty=global.tx*local.b+global.ty*local.d+local.ty;
+        result.a=local.a*global.a + local.b*global.c;
+        result.b=local.a*global.b + local.b*global.d;
+        result.c=local.c*global.a + local.d*global.c;
+        result.d=local.c*global.b + local.d*global.d;
+        result.tx=local.tx*global.a + local.ty*global.c+global.tx;
+        result.ty=local.tx*global.b+local.ty*global.d+global.ty;
         
        
         return result;
