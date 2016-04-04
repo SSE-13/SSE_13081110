@@ -2,7 +2,7 @@
 var human = new render.DisplayObjectContainer();
 var humanContainer = new render.DisplayObjectContainer();
 
-humanContainer.x=-80;
+humanContainer.x=-50;
 humanContainer.y=-80;
 human.addChild(humanContainer);
 
@@ -49,10 +49,9 @@ class HumanBody extends Body {
     
      x=0;
     y=0;
-    vx=1;
     vy=1;
-    vr=3;
-    //vx:number = 5;
+    vr=1;
+    vx:number = 1;
     
 
     onTicker(duringTime: number) {
@@ -69,6 +68,8 @@ class HumanBody extends Body {
 
 var ticker = new Ticker();
 var body = new HumanBody(human);
+body.x=100;
+body.y=100;
 ticker.start([body]);
 
 
@@ -76,16 +77,56 @@ var eventCore = new events.EventCore();
 eventCore.init();
 
 var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
-    alert (`点击位置为${localPoint.x},${localPoint.y}`);
-    return true;
+    //alert (`点击位置为${localPoint.x},${localPoint.y}`);
+    var b = false; 
+    if(localPoint.x<=80 && localPoint.y<=80){
+        b=true;
+    }
+    return b;
+    
 }
 
+var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
+    var c = false; 
+    //alert (`点击位置为${localPoint.x},${localPoint.y}`);
+    if((localPoint.x>-55&&localPoint.x<=-11&&localPoint.y>25&&localPoint.y<=46)||
+        (localPoint.x>-25&&localPoint.x<=-5&&localPoint.y>25&&localPoint.y<=50)){
+            c=true;
+    }
+    return c;
+    
+}
+
+
+
 var headOnClick = () => {
-    alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
+    if(headHitTest){
+        if(body.vr==0&&body.vx==0&&body.vy==0){
+            body.vx=1;
+            body.vy=1;
+            body.vr=1;
+        }else{
+            body.vr*=-1;
+        }
+    }
+}
+
+var legOnClick = () => {
+    
+    //修改 HumanBody 的速度，使其反向移动
+    if(legHitTest){
+            body.vx=0;
+            body.vy=0;
+            body.vr=0;
+            body.rotation=0;
+      
+    }
 }
 
 eventCore.register(head,headHitTest,headOnClick);
+eventCore.register(left_arm,legHitTest,legOnClick);
+
 
 
 
