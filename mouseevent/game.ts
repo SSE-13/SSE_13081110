@@ -88,9 +88,9 @@ var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
 
 var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     var c = false; 
-    //alert (`点击位置为${localPoint.x},${localPoint.y}`);
-    if((localPoint.x>-55&&localPoint.x<=-11&&localPoint.y>25&&localPoint.y<=46)||
-        (localPoint.x>-25&&localPoint.x<=-5&&localPoint.y>25&&localPoint.y<=50)){
+    // alert (`点击位置为${localPoint.x},${localPoint.y}`);
+    if((localPoint.x>-35&&localPoint.x<=-6&&localPoint.y>0&&localPoint.y<=25)||
+        (localPoint.x>-0&&localPoint.x<=15&&localPoint.y>0&&localPoint.y<=25)){
             c=true;
     }
     return c;
@@ -113,8 +113,6 @@ var headOnClick = () => {
 }
 
 var legOnClick = () => {
-    
-    //修改 HumanBody 的速度，使其反向移动
     if(legHitTest){
             body.vx=0;
             body.vy=0;
@@ -125,7 +123,7 @@ var legOnClick = () => {
 }
 
 eventCore.register(head,headHitTest,headOnClick);
-eventCore.register(left_arm,legHitTest,legOnClick);
+eventCore.register(left_leg,legHitTest,legOnClick);
 
 
 
