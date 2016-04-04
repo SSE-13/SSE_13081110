@@ -1,0 +1,75 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var human = new render.DisplayObjectContainer();
+var humanContainer = new render.DisplayObjectContainer();
+humanContainer.x = -80;
+humanContainer.y = -80;
+human.addChild(humanContainer);
+var trunk = new render.Bitmap();
+trunk.source = "trunk.png";
+trunk.y = 77;
+trunk.x = 14;
+humanContainer.addChild(trunk);
+var head = new render.Bitmap();
+head.source = "head.png";
+humanContainer.addChild(head);
+var left_arm = new render.Bitmap();
+left_arm.source = "left_arm.png";
+left_arm.x = 68;
+left_arm.y = 86;
+humanContainer.addChild(left_arm);
+var right_arm = new render.Bitmap();
+right_arm.source = "right_arm.png";
+right_arm.x = -5;
+right_arm.y = 70;
+humanContainer.addChild(right_arm);
+var left_leg = new render.Bitmap();
+left_leg.source = "left_leg.png";
+left_leg.x = 45;
+left_leg.y = 110;
+humanContainer.addChild(left_leg);
+var right_leg = new render.Bitmap();
+right_leg.source = "right_leg.png";
+right_leg.x = 10;
+right_leg.y = 110;
+humanContainer.addChild(right_leg);
+var renderCore = new render.RenderCore();
+renderCore.start(human, ["trunk.png", "head.png", "left_arm.png", "right_arm.png", "left_leg.png", "right_leg.png"]);
+var HumanBody = (function (_super) {
+    __extends(HumanBody, _super);
+    function HumanBody() {
+        _super.apply(this, arguments);
+        this.x = 0;
+        this.y = 0;
+        this.vx = 1;
+        this.vy = 1;
+        this.vr = 3;
+    }
+    //vx:number = 5;
+    HumanBody.prototype.onTicker = function (duringTime) {
+        // this.x = 100;//+= duringTime * this.vx;
+        //this.y = 100;
+        this.x += this.vx * duringTime;
+        this.y += this.vy * duringTime;
+        this.rotation += this.vr * duringTime;
+    };
+    return HumanBody;
+}(Body));
+var ticker = new Ticker();
+var body = new HumanBody(human);
+ticker.start([body]);
+var eventCore = new events.EventCore();
+eventCore.init();
+var headHitTest = function (localPoint, displayObject) {
+    alert("\u70B9\u51FB\u4F4D\u7F6E\u4E3A" + localPoint.x + "," + localPoint.y);
+    return true;
+};
+var headOnClick = function () {
+    alert("clicked!!");
+    //修改 HumanBody 的速度，使其反向移动
+};
+eventCore.register(head, headHitTest, headOnClick);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2FtZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImdhbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFDQSxJQUFJLEtBQUssR0FBRyxJQUFJLE1BQU0sQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO0FBQ2hELElBQUksY0FBYyxHQUFHLElBQUksTUFBTSxDQUFDLHNCQUFzQixFQUFFLENBQUM7QUFFekQsY0FBYyxDQUFDLENBQUMsR0FBQyxDQUFDLEVBQUUsQ0FBQztBQUNyQixjQUFjLENBQUMsQ0FBQyxHQUFDLENBQUMsRUFBRSxDQUFDO0FBQ3JCLEtBQUssQ0FBQyxRQUFRLENBQUMsY0FBYyxDQUFDLENBQUM7QUFFL0IsSUFBSSxLQUFLLEdBQUcsSUFBSSxNQUFNLENBQUMsTUFBTSxFQUFFLENBQUM7QUFDaEMsS0FBSyxDQUFDLE1BQU0sR0FBRyxXQUFXLENBQUM7QUFDM0IsS0FBSyxDQUFDLENBQUMsR0FBQyxFQUFFLENBQUM7QUFDWCxLQUFLLENBQUMsQ0FBQyxHQUFDLEVBQUUsQ0FBQztBQUNYLGNBQWMsQ0FBQyxRQUFRLENBQUMsS0FBSyxDQUFDLENBQUM7QUFFL0IsSUFBSSxJQUFJLEdBQUcsSUFBSSxNQUFNLENBQUMsTUFBTSxFQUFFLENBQUM7QUFDL0IsSUFBSSxDQUFDLE1BQU0sR0FBRyxVQUFVLENBQUM7QUFDekIsY0FBYyxDQUFDLFFBQVEsQ0FBQyxJQUFJLENBQUMsQ0FBQztBQUk5QixJQUFJLFFBQVEsR0FBRyxJQUFJLE1BQU0sQ0FBQyxNQUFNLEVBQUUsQ0FBQztBQUNuQyxRQUFRLENBQUMsTUFBTSxHQUFHLGNBQWMsQ0FBQztBQUNqQyxRQUFRLENBQUMsQ0FBQyxHQUFDLEVBQUUsQ0FBQztBQUNkLFFBQVEsQ0FBQyxDQUFDLEdBQUMsRUFBRSxDQUFDO0FBQ2QsY0FBYyxDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQztBQUVsQyxJQUFJLFNBQVMsR0FBRyxJQUFJLE1BQU0sQ0FBQyxNQUFNLEVBQUUsQ0FBQztB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
