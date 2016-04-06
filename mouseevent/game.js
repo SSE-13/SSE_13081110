@@ -110,7 +110,7 @@ var LlegOnClick = function () {
     }
 };
 var RlegOnClick = function () {
-    if (LlegHitTest) {
+    if (RlegHitTest) {
         body.vx = 0;
         body.vy = 0;
         body.vr = 0;

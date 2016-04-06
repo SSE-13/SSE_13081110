@@ -131,7 +131,7 @@ var LlegOnClick = () => {
 }
 
 var RlegOnClick = () => {
-    if(LlegHitTest){
+    if(RlegHitTest){
             body.vx=0;
             body.vy=0;
             body.vr=0;
