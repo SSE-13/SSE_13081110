@@ -86,17 +86,25 @@ var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     
 }
 
-var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
+var LlegHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     var c = false; 
     // alert (`点击位置为${localPoint.x},${localPoint.y}`);
-    if((localPoint.x>-35&&localPoint.x<=-6&&localPoint.y>0&&localPoint.y<=25)||
-        (localPoint.x>-0&&localPoint.x<=15&&localPoint.y>0&&localPoint.y<=25)){
+    if(localPoint.x>-35&&localPoint.x<=-6&&localPoint.y>0&&localPoint.y<=25){
             c=true;
     }
     return c;
     
 }
 
+var RlegHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
+    var c = false; 
+    // alert (`点击位置为${localPoint.x},${localPoint.y}`);
+    if(localPoint.x>35&&localPoint.x<=50&&localPoint.y>0&&localPoint.y<=25){
+            c=true;
+    }
+    return c;
+    
+}
 
 
 var headOnClick = () => {
@@ -112,8 +120,18 @@ var headOnClick = () => {
     }
 }
 
-var legOnClick = () => {
-    if(legHitTest){
+var LlegOnClick = () => {
+    if(LlegHitTest){
+            body.vx=0;
+            body.vy=0;
+            body.vr=0;
+            body.rotation=0;
+      
+    }
+}
+
+var RlegOnClick = () => {
+    if(LlegHitTest){
             body.vx=0;
             body.vy=0;
             body.vr=0;
@@ -123,8 +141,8 @@ var legOnClick = () => {
 }
 
 eventCore.register(head,headHitTest,headOnClick);
-eventCore.register(left_leg,legHitTest,legOnClick);
-
+eventCore.register(left_leg,LlegHitTest,LlegOnClick);
+eventCore.register(right_leg,RlegHitTest,RlegOnClick);
 
 
 
